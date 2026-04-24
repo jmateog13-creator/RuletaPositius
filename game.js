@@ -12,15 +12,17 @@ const JOCS_DEFECTE = [
   "Rhythm Crush",
   "Melodle",
   "Busca-Ritmes",
-  "Rajoles Rítmiques"
+  "Rajoles Rítmiques",
+  "Aeroport Flow"
 ];
 
 const PREMIS_DEFECTE = [
-  "x1 Positiu",
+  "Cap efecte",
   "x2 Positius",
   "x3 Positius",
   "x5 Positius (Jackpot!)",
   "El professor tria",
+  "Treball per parelles",
   "Joc prohibit!"
 ];
 
