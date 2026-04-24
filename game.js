@@ -17,20 +17,27 @@ const JOCS_DEFECTE = [
 ];
 
 const PREMIS_DEFECTE = [
-  "Cap efecte",
-  "x2 Positius",
-  "x3 Positius",
-  "x5 Positius (Jackpot!)",
+  "Es queda igual",
+  "Doblet (+2)",
+  "Ple al 3 (+3)",
+  "Cinquina (+5)",
+  "Set de la sort (+7)",
+  "MEGA JACKPOT (+10)",
   "El professor tria",
   "Treball per parelles",
   "Joc prohibit!"
 ];
 
-// Paleta de colors pel dibuix dels segments
+// Paleta estil casino (jewel tones): ruby, negre nit, or, maragda, porpra...
 const PALETA = [
-  "#ff3b9a", "#ffcc00", "#00e6c3", "#7a5cff",
-  "#ff6b3d", "#32d96b", "#3db4ff", "#e83e8c",
-  "#ffb84d", "#9b59b6", "#1abc9c", "#f1c40f"
+  "#c41e3a", // ruby
+  "#111826", // midnight black
+  "#b8860b", // antique gold
+  "#0b4f3a", // emerald felt
+  "#6b1e74", // royal purple
+  "#8b0000", // wine
+  "#1e4d8b", // sapphire
+  "#2d1b69"  // indigo
 ];
 
 // ------- REFERÈNCIES DOM -------
@@ -346,8 +353,11 @@ function mostrarResultat(joc, premi) {
   jocResultat.textContent   = joc;
   premiResultat.textContent = premi;
 
-  const esAlerta = /prohibit/i.test(premi);
+  const esAlerta  = /prohibit/i.test(premi);
+  const esJackpot = /jackpot/i.test(premi);
+
   modalContingut.classList.toggle("alerta", esAlerta);
+  modalContingut.classList.toggle("jackpot", esJackpot);
 
   modal.classList.remove("hidden");
 }
