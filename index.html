@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Panell del Director — Ruleta Doble</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>🎛️ El Panell del Director</h1>
+    <div class="topbar-actions">
+      <button id="btnToggleLlistes" class="btn btn-ghost" title="Mostra/amaga llistes">⚙️ Llistes</button>
+      <button id="btnFullscreen" class="btn btn-ghost" title="Pantalla completa">⛶ Pantalla completa</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- ZONA DE GESTIÓ (amagada per defecte) -->
+    <section class="zona-gestio" id="zonaGestio" hidden>
+      <div class="card">
+        <h2>🎮 Llista de Jocs/Reptes</h2>
+        <textarea id="txtJocs" rows="10" spellcheck="false"
+          placeholder="Un joc per línia..."></textarea>
+        <div class="file-row">
+          <label class="btn btn-small">
+            📂 Carregar .txt
+            <input type="file" id="fileJocs" accept=".txt,.md,text/plain" hidden />
+          </label>
+          <button class="btn btn-small" id="btnDescarregaJocs">💾 Desar .txt</button>
+          <button class="btn btn-small" id="btnResetJocs">↺ Defecte</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🎁 Llista de Multiplicadors</h2>
+        <textarea id="txtPremis" rows="10" spellcheck="false"
+          placeholder="Un premi per línia..."></textarea>
+        <div class="file-row">
+          <label class="btn btn-small">
+            📂 Carregar .txt
+            <input type="file" id="filePremis" accept=".txt,.md,text/plain" hidden />
+          </label>
+          <button class="btn btn-small" id="btnDescarregaPremis">💾 Desar .txt</button>
+          <button class="btn btn-small" id="btnResetPremis">↺ Defecte</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ZONA D'ACCIÓ -->
+    <section class="zona-accio">
+      <div class="ruletes">
+        <div class="ruleta-wrap">
+          <h3>JOC</h3>
+          <div class="ruleta-canvas-wrap">
+            <div class="fletxa">▼</div>
+            <canvas id="ruletaJocs" width="500" height="500"></canvas>
+          </div>
+        </div>
+
+        <div class="ruleta-wrap">
+          <h3>CONDICIÓ</h3>
+          <div class="ruleta-canvas-wrap">
+            <div class="fletxa">▼</div>
+            <canvas id="ruletaPremis" width="500" height="500"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <button id="btnGirar" class="btn-girar">
+        🎯 ACTUALITZAR I GIRAR
+      </button>
+    </section>
+  </main>
+
+  <!-- POP-UP RESULTAT -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-contingut" id="modalContingut">
+      <h2>AVUI JUGUEM A:</h2>
+      <p class="joc-resultat" id="jocResultat">—</p>
+      <h3>CONDICIÓ:</h3>
+      <p class="premi-resultat" id="premiResultat">—</p>
+      <button id="btnTancarModal" class="btn">D'acord ✔</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
